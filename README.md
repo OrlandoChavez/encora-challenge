@@ -1,15 +1,20 @@
 # How to run the project?
 
-Install [Node.js](https://nodejs.org/) version 18.9.0
+Make sure you have [Node.js](https://nodejs.org/) version 18.9.0 or higher installed:
+```shell
+$ node -v
+# v18.9.0
+```
+
 
 Install npm dependecies:
 ```shell
-npm i
+$ npm i
 ```
 
-Run the Tests:
+Run the Example:
 ```shell
-npm test
+$ npm run example
 ```
 
 ## Usage:
@@ -17,7 +22,8 @@ npm test
 import csvReader from "./src/csv-reader.mjs";
 
 const options = {
-	filePath: 'path/to/csv/file'
+	filePath: 'path/to/csv/file',
+	transform: (row) => console.log(row)
 };
 
 await csvReader(options);
@@ -36,7 +42,7 @@ await csvReader(options);
 # Pros and Cons:
 | Pros | Cons |
 | --- | --- |
-| Use the last ES standards. | Requires Node.js version 17 or higher. |
+| Use the last ES standards. | Requires Node.js version 16 or higher. |
 | Supports async out of the box. | Returns a Promise. |
 | Use community tested libraries. | Has dependencies. |
 

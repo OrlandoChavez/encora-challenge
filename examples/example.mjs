@@ -21,26 +21,27 @@ function square(number) {
  * Hook before the file is read.
  */
 function beforeReadHook() {
-	console.log('Before Read Hook');
+	console.log('Hook: Before Read');
 }
 /**
  * Hook after the file is read.
  */
 function afterReadHook() {
-	console.log('After Read Hook');
+	console.log('Hook: After Read');
 }
 
 
 console.log('----------------------------------------');
-console.log('Test from file (minimun params)');
+console.log('Example from file (minimun params)');
 console.log(`Input: ${testFile}`);
 await csvReader({
-	filePath: testFile
+	filePath: testFile,
+	transform: square
 });
 
 
 console.log('----------------------------------------');
-console.log('Test from file (full params)');
+console.log('Example from file (full params)');
 console.log(`Input: ${testFile}`);
 duration = await csvReader({
 	filePath: testFile,
@@ -53,14 +54,15 @@ console.log(`Duration: ${duration} ms`);
 
 
 console.log('----------------------------------------');
-console.log('Test from URL (minimun params)');
+console.log('Example from URL (minimun params)');
 console.log(`Input: ${testURL}`);
 await csvReader({
-	filePath: testURL
+	filePath: testURL,
+	transform: square
 });
 
 console.log('----------------------------------------');
-console.log('Test from URL');
+console.log('Example from URL');
 console.log(`Input: ${testURL}`);
 duration = await csvReader({
 	filePath: testURL,
